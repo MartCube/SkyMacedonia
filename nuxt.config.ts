@@ -9,7 +9,8 @@ export default defineNuxtConfig({
 	},
 	components: {
 		"dirs": [
-			{ "path": "~/components/App", "global": true },
+			{ "path": "~/components/App", "global": true, pathPrefix: false, },
+			{ "path": "~/components/Icons", "global": true, pathPrefix: false, },
 		],
 	},
 	app: {
@@ -22,6 +23,7 @@ export default defineNuxtConfig({
 	modules: [
 		'@nuxtjs/sanity',
 		'@pinia/nuxt',
+		'nuxt-icon',
 	],
 	sanity: {
 		projectId: 'byo8spf8',
