@@ -3,7 +3,18 @@ import { PageQuery } from "~~/src/queries"
 import type { Page } from "~~/src/types"
 
 // fetch data
-const { data, pending } = await useSanityQuery<Page>(PageQuery, { uid: 'home' })
+const { params } = useRoute()
+const { fetch } = useSanity()
+const { data, pending } = await useAsyncData(
+	`page ${params.page}`,
+	() => fetch<Page>(PageQuery, { uid: params.page }))
+
+// handle error
+if (!data.value) throw createError({
+	statusCode: 404,
+	statusMessage: `${params.service} Not Found`,
+	fatal: true
+})
 </script>
 
 <template>

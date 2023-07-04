@@ -14,29 +14,31 @@ export const AppQuery = groq`*[ _type == 'app' ][0]{
 export const PageQuery = groq`*[ _type == 'page' && $uid == uid.current ][0]{
   content[]{
     _type == 'intro' => {
+			...,
       video,
-      image {
-        "src": asset._ref,
-        hotspot,
-        crop,d
-      },
+			'image': image.asset._ref,
     },
     _type == 'services' => {
-      number
+			...,
+      number,
     },
     _type == 'contact' => {
-      title,
-      image {
-        "src": asset._ref,
-        hotspot,
-        crop,
-      },
+			...,
+			'image': image.asset._ref,
     },
   }
 }`
 
+export const ServiceCardsQuery = groq`*[ _type == 'service' && $serviceType == serviceType ]{
+  "image": image.asset._ref,
+  "title": name,
+  "description":cardDescription,
+  "link":uid.current,
+}`
+
 export const ServiceQuery = groq`*[ _type == 'service' && $uid == uid.current ][0]{
-  name,
+  "title": name,
+	"image": image.asset._ref,
   "uid":uid.current,
   serviceType,
   description,

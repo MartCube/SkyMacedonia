@@ -4,8 +4,8 @@
 
 <template>
 	<div>
-		<Navbar />
+		<AppNavbar />
 		<NuxtPage />
-		<Footer />
+		<AppFooter />
 	</div>
 </template>

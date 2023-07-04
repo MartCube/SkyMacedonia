@@ -11,27 +11,42 @@ export interface App {
 	}[],
 }
 
+export interface Link {
+	value: string,
+	label: string,
+}
+
+export interface Page {
+	content: any
+}
+
 export interface MetaTags {
 	title: string,
 	description: string,
 	image: string,
 }
 
+export interface ServiceAccommodation {
+	title: string,
+	subtitle: string,
+	image: string,
+	link: string,
+}
+
+export interface ServiceCard{
+	image:string,
+	title: string,
+	description:string,
+	link:string,
+}
+
 export interface Service {
-	name: string,
+	title: string,
+	image:string,
 	uid: string,
 	serviceType: string,
 	description: any,
 	gallery: string[],
-	accommodations: {
-		title: string,
-		subtitle: string,
-		image: string,
-		link: string,
-	}[]
+	accommodations: ServiceAccommodation[]
 }
 
-export interface Link {
-	value: string,
-	label: string,
-}

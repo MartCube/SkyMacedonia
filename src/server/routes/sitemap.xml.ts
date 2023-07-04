@@ -1,5 +1,5 @@
-import { createClient } from '@sanity/client'
-import { SitemapStream, streamToPromise } from 'sitemap'
+// import { createClient } from '@sanity/client'
+// import { SitemapStream, streamToPromise } from 'sitemap'
 // import { Sitemap_Q } from '~~/src/queries'
 // import { Sitemap } from '~~/src/types'
 

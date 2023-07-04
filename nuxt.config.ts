@@ -11,6 +11,8 @@ export default defineNuxtConfig({
 		"dirs": [
 			{ "path": "~/components/App", "global": true, pathPrefix: false, },
 			{ "path": "~/components/Icons", "global": true, pathPrefix: false, },
+			{ "path": "~/components/Blocks", "global": true, pathPrefix: false, },
+			{ "path": "~/components/Service", "global": true, pathPrefix: false, },
 		],
 	},
 	app: {
@@ -24,6 +26,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/sanity',
 		'@pinia/nuxt',
 		'nuxt-icon',
+		// '@nuxt/image',
 	],
 	sanity: {
 		projectId: 'byo8spf8',
@@ -33,6 +36,12 @@ export default defineNuxtConfig({
 		// token: process.env.SANITY_TOKEN,
 		// useCdn: false,
 	},
+	// image: {
+	// 	sanity: {
+	// 		projectId: 'byo8spf8',
+	// 	}
+	// },
+
 	nitro: {
 		prerender: {
 			crawlLinks: true,

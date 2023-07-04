@@ -3,7 +3,7 @@ import { PageQuery } from "~~/src/queries"
 import type { Page } from "~~/src/types"
 
 // fetch data
-const { data, pending } = await useSanityQuery<Page>(PageQuery, { uid: 'home' })
+const { data, pending } = await useSanityQuery<Page>(PageQuery, { uid: 'paragliding' })
 </script>
 
 <template>
