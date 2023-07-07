@@ -26,13 +26,23 @@ defineProps<{
 		font-size: 2rem;
 		line-height: 2rem;
 		letter-spacing: 0.1rem;
-
 		margin-bottom: 4rem;
 	}
 	ul{
 		width: inherit;
 		display: flex;
 		justify-content: space-between;
+	}
+
+	@media (max-width: 900px) {
+		align-items: center;
+		ul{
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 2rem;
+
+		}
 	}
 }
 </style>

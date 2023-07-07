@@ -145,7 +145,6 @@ footer {
 
 	@media (max-width: 1100px) {
 		flex-direction: column;
-
 		.logo{
 			height: 6rem;
 		}

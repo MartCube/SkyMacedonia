@@ -40,5 +40,10 @@ defineProps<{
 			height: fit-content;
 		}
 	}
+	@media (max-width: 800px) {
+		.image{
+			height: 20rem;
+		}
+	}
 }
 </style>

@@ -72,9 +72,10 @@ onKeyStroke(['Escape', 'ArrowLeft', 'ArrowRight'], (e: KeyboardEvent) => {
 	</section>
 </template>
 
-<style lang="scss" >
+<style lang="scss">
 .service-gallery {
 	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 
@@ -167,33 +168,25 @@ onKeyStroke(['Escape', 'ArrowLeft', 'ArrowRight'], (e: KeyboardEvent) => {
 		}
 	}
 }
-
+@media (max-width: 1250px) {
+	.service-gallery {
+		.grid {
+			justify-content: space-around;
+		}
+	}
+}
 
 @media (max-width: 800px) {
-	#gallery {
+	.service-gallery {
+		align-items: center;
 		.grid {
-			justify-content: space-between;
-
+			justify-content: center;
+			gap: 2rem;
 			.image {
-				width: 48%;
-				margin-right: 0;
+				margin:0;
 			}
 		}
 	}
 }
 
-@media (max-width: 600px) {
-	#gallery {
-		padding-bottom: 2rem;
-
-		.grid {
-
-			.image {
-				width: 100%;
-				margin-bottom: 2rem;
-
-			}
-		}
-	}
-}
 </style>

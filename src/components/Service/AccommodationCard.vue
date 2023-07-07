@@ -11,16 +11,18 @@ defineProps<{
 			<div class="info">
 				<h3 class="title">{{ data.title }}</h3>
 				<h4 class="subtitle">{{ data.subtitle }}</h4>
-				<!-- <AppBtn>Book Now</AppBtn> -->
 			</div>
-			<AppImage :src="data.image" :width="1100" :height="824"/>
-			<div class="overlay"></div>
+			<AppImage 
+				:src="data.image" 
+				:width="1100" 
+				:height="824"/>
+			<div class="overlay" />
 		</NuxtLink>
 </template>
 
 <style lang="scss" scoped>
 .accommodation-card{
-	width: 35rem;
+	width: 45%;
 	height: 26rem;
 	list-style: none;
 	position: relative;
@@ -39,13 +41,14 @@ defineProps<{
 		background: $dark;
 		border-radius: 1.5rem;
 		
-		opacity: 0;
+		opacity: 0.75;
 		transition: opacity 0.35s ease;
 	}
 
 	.image{
-		width: inherit;
-		height: inherit;
+		width: 100%;
+		max-width: 35rem;
+		height: 26rem;
 		border-radius: 1.5rem;
 		overflow: hidden;
 		position: absolute;
@@ -67,7 +70,7 @@ defineProps<{
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
-		opacity: 0;
+		opacity: 1;
 		.title{
 			color: $white;
 			font-size: 2rem;
@@ -83,17 +86,14 @@ defineProps<{
 		}
 	}
 
+	@media (max-width: 900px) {
+		width: 100%;
+		max-width: 30rem;
+		height: 20rem;
 
-
-	&:hover{
-		cursor: pointer;
-		.overlay{
-			opacity: 0.75;
-		}
-		.info{
-			opacity: 1;
+		.image{
+			height: 20rem;
 		}
 	}
-
 }
 </style>

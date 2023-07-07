@@ -26,9 +26,9 @@ onClickOutside(linksRef, (event) => menuValue.value = false)
 <template>
 	<header>
 		<AppLogo />
-		<nav class="links" :class="{ show: menuValue }" ref="linksRef">
-			<ul>
-				<li class="link" v-for="link in links" >
+		<nav class="links" :class="{ show: menuValue }">
+			<ul ref="linksRef"> 
+				<li class="link" v-for="link in links" @click="menuValue = false" >
 					<NuxtLink :to="link.value">
 						{{ link.label }}
 					</NuxtLink>
@@ -98,14 +98,17 @@ header {
 			height: 100%;
 			background: $white;
 
-
-			display: none; // toggle to flex
-			flex-direction: column;
+			&.show {
+				display: flex;
+			}
 			justify-content: center;
 			align-items: center;
 
-			&.show {
+			ul{
 				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 			}
 		}
 		.menu{
