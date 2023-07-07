@@ -3,6 +3,7 @@ import { useCycleList, onKeyStroke, onClickOutside } from '@vueuse/core'
 
 const props = defineProps<{
 	data: string[],
+	title: string,
 }>()
 
 const lightboxRef = ref(null)	// lightbox ref
@@ -54,6 +55,7 @@ onKeyStroke(['Escape', 'ArrowLeft', 'ArrowRight'], (e: KeyboardEvent) => {
 				:src="image" 
 				:width="600" 
 				:height="400"
+				:alt="title"
 				overlay
 			/>
 		</div>
@@ -62,7 +64,8 @@ onKeyStroke(['Escape', 'ArrowLeft', 'ArrowRight'], (e: KeyboardEvent) => {
 				<AppImage 
 					:src="state" 
 					:width="1280" 
-					:height="720" 
+					:height="720"
+					:alt="title"
 				/>
 				<Icon class="prev" @click="prev()" name="GalleryArrow" />
 				<Icon class="next" @click="next()" name="GalleryArrow" />

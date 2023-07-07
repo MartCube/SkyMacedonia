@@ -9,7 +9,7 @@ defineProps<{
 <template>
 	<li class="service-card">
 		<NuxtLink :to="`/paragliding/${data.link}/`">
-			<AppImage :src="data.image" :width="600" :height="400" />
+			<AppImage :src="data.image" :width="600" :height="400"  :alt="data.title"/>
 			<div class="info">
 				<h2 class="title">{{ data.title }}</h2>
 				<p class="description">{{ data.description }}</p>

@@ -8,7 +8,7 @@ defineProps<{
 	<section class="contact-block">
 		<ContactForm />
 		<div class="image">
-			<AppImage :src="image" :width="1080" :height="1200" />
+			<AppImage :src="image" :width="1080" :height="1200" alt="contact" />
 		</div>
 	</section>
 </template>

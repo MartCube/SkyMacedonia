@@ -35,9 +35,9 @@ onClickOutside(linksRef, (event) => menuValue.value = false)
 				</li>
 			</ul>
 		</nav>
-		<button class="menu" @click="menuToggle()">
+		<div class="menu" @click="menuToggle()">
 			<Icon name="Menu" size="32px" />
-		</button>
+		</div>
 	</header>
 </template>
 

@@ -15,7 +15,9 @@ defineProps<{
 			<AppImage 
 				:src="data.image" 
 				:width="1100" 
-				:height="824"/>
+				:height="824"
+				:alt="data.title"
+				/>
 			<div class="overlay" />
 		</NuxtLink>
 </template>

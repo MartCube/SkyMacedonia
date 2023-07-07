@@ -29,7 +29,7 @@ useMetaTags(data.value.metaTags)
 				{{ data.title }}
 			</h1>
 			<ServiceContent :data="data.description" />
-			<ServiceGallery :data="data.gallery"/>
+			<ServiceGallery :data="data.gallery" :title="data.title"/>
 			<ServiceAccommodation 
 				v-if="data.accommodations" 
 				:data="data.accommodations" />

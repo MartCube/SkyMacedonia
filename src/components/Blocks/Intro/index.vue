@@ -11,7 +11,7 @@ defineProps<{
 
 <template>
 	<section class="intro-block">
-		<AppImage :src="image" :width="5000" :height="3333" />
+		<AppImage :src="image" :width="5000" :height="3333" alt="Sky Macedonia"/>
 	</section>
 </template>
 
