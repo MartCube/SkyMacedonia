@@ -3,7 +3,19 @@ import { PageQuery } from "~~/src/queries"
 import type { Page } from "~~/src/types"
 
 // fetch data
-const { data, pending } = await useSanityQuery<Page>(PageQuery, { uid: 'home' })
+const { fetch } = useSanity()
+const { data, pending } = await useAsyncData(
+	`page home`,
+	() => fetch<Page>(PageQuery, { uid: 'home' }))
+
+// handle error
+if (!data.value) throw createError({
+	statusCode: 404,
+	statusMessage: `Home Page Not Found`,
+	fatal: true,
+})
+
+useMetaTags(data.value.metaTags)
 </script>
 
 <template>

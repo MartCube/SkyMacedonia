@@ -26,7 +26,12 @@ export const PageQuery = groq`*[ _type == 'page' && $uid == uid.current ][0]{
 			...,
 			'image': image.asset._ref,
     },
-  }
+  },
+	metaTags{
+		title,
+		description,
+		'image': image.asset._ref,
+	}
 }`
 
 export const ServiceCardsQuery = groq`*[ _type == 'service' && $serviceType == serviceType ]{
@@ -48,7 +53,12 @@ export const ServiceQuery = groq`*[ _type == 'service' && $uid == uid.current ][
     subtitle,
     "image": image.asset._ref,
     link,
-  }
+  },
+	metaTags{
+		title,
+		description,
+		'image': image.asset._ref,
+	}
 }`
 
 export const SitemapQuery = groq`*[ _type in [ "page", "service"] ]{

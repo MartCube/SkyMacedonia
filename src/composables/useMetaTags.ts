@@ -2,14 +2,20 @@ import type { MetaTags } from "~~/src/types"
 import imageUrlBuilder from '@sanity/image-url'
 
 export default (data: MetaTags) => {
+	
 	const { fullPath } = useRoute()
 	const domain = "https://skymacedonia.com"
-	// og:url	twitter:url
 	const url = domain + fullPath
-	// og:image	twitter:image
-	const builder = imageUrlBuilder({ projectId: useSanity().config.projectId, dataset: "production" })
-	const image = builder.image(data.image).auto('format').width(1200).height(630).url()
 
+	const builder = imageUrlBuilder({ projectId: useSanity().config.projectId, dataset: "production" })
+	const ogImage = builder.image(data.image).auto('format').url()
+	const twitterImage = builder.image(data.image)
+		.auto('format')
+		.width(600)
+		.height(600)
+		.fit('crop')
+		.url()
+	
 	useHead({
 		title: data.title,
 		htmlAttrs: { lang: 'en' },
@@ -24,15 +30,19 @@ export default (data: MetaTags) => {
 			{ property: 'og:type', content: 'website', },
 			{ property: 'og:title', content: data.title, },
 			{ property: 'og:description', content: data.description, },
-			{ property: 'og:image', content: image, },
+			{ property: 'og:image', content: ogImage, },
 			{ property: 'og:image:alt', content: data.title, },
 			{ property: 'og:url', content: url, },
 			// twitter
 			{ name: "twitter:title", content: data.title },
 			{ name: "twitter:description", content: data.description },
-			{ name: "twitter:image", content: image },
+			{ name: "twitter:image", content: twitterImage },
 			{ name: "twitter:image:alt", content: data.title },
 			{ property: 'twitter:url', content: url, },
 		],
+	})
+
+	useSeoMeta({
+		twitterCard: 'summary'
 	})
 }

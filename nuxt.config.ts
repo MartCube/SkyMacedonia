@@ -26,22 +26,14 @@ export default defineNuxtConfig({
 		'@nuxtjs/sanity',
 		'@pinia/nuxt',
 		'nuxt-icon',
-		// '@nuxt/image',
 	],
 	sanity: {
 		projectId: 'byo8spf8',
 		dataset: 'production',
 		minimal: true,
 		apiVersion: '2023-01-01',
-		// token: process.env.SANITY_TOKEN,
-		// useCdn: false,
-	},
-	// image: {
-	// 	sanity: {
-	// 		projectId: 'byo8spf8',
-	// 	}
-	// },
 
+	},
 	nitro: {
 		prerender: {
 			crawlLinks: true,

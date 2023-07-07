@@ -17,7 +17,8 @@ export interface Link {
 }
 
 export interface Page {
-	content: any
+	content: any,
+	metaTags: MetaTags,
 }
 
 export interface MetaTags {
@@ -47,6 +48,7 @@ export interface Service {
 	serviceType: string,
 	description: any,
 	gallery: string[],
-	accommodations: ServiceAccommodation[]
+	accommodations: ServiceAccommodation[],
+	metaTags: MetaTags,
 }
 
