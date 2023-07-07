@@ -26,6 +26,9 @@ defineProps<{
 		width: 100%;
 		height: calc(100vh - 80px);;
 	}
+	@media (max-width: 900px) {
+		margin-bottom: 4rem;
+	}
 
 }
 </style>

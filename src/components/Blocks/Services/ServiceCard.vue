@@ -80,6 +80,14 @@ defineProps<{
 			max-width: 24rem;
 		}
 	}
+	@media (max-width: 600px) {
+		.info{
+			height: fit-content;
+			.description{
+				margin: 1rem 0;
+			}
+		}
+	}
 
 }
 </style>

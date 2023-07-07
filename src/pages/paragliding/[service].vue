@@ -15,6 +15,8 @@ if (!data.value) throw createError({
 	statusMessage: `${params.service} Not Found`,
 	fatal: true
 })
+
+useMetaTags(data.value.metaTags)
 </script>
 
 <template>

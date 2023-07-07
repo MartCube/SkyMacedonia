@@ -37,6 +37,10 @@ defineProps<{
 			border-color: transparent;
 		}
 	}
+	@media (max-width: 800px) {
+	padding: 0 2rem;
+
+	}
 
 }
 </style>

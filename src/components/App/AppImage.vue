@@ -18,6 +18,16 @@ defineProps<{
 	</div>
 </template>
 
+<!-- <template>
+	<div class="image">
+		<SanityImage :asset-id="src" :w="width" :h="height" fit="crop" crop="focalpoint" :fp-x="hotspot?.x" :fp-y="hotspot?.y">
+			<template #default="{ src }">
+				<img v-lazy="src" :title="title" :alt="alt" />
+			</template>
+		</SanityImage>
+	</div>
+</template> -->
+
 <style lang="scss" >
 .image {
 	display: flex;

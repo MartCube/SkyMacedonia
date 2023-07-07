@@ -17,10 +17,7 @@ export default defineNuxtConfig({
 	},
 	app: {
 		pageTransition: { name: 'page', mode: 'out-in' },
-		head: {
-			title: 'Sky Macedonia',
-			link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
-		}
+		head: {	link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]}
 	},
 	modules: [
 		'@nuxtjs/sanity',

@@ -81,7 +81,6 @@ form {
 
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	gap: 3rem;
 
 	position: relative;
@@ -101,6 +100,7 @@ form {
 
 	@media (max-width: 900px) {
 		padding: 0;
+		align-items: center;
 	}
 }
 </style>
