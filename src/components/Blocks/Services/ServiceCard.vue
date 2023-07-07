@@ -80,6 +80,7 @@ defineProps<{
 			max-width: 24rem;
 		}
 	}
+
 	@media (max-width: 600px) {
 		.info{
 			height: fit-content;
@@ -88,6 +89,5 @@ defineProps<{
 			}
 		}
 	}
-
 }
 </style>

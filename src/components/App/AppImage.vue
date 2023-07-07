@@ -19,8 +19,6 @@ defineProps<{
 	</div>
 </template>
 
-
-
 <style lang="scss" >
 .image {
 	display: flex;

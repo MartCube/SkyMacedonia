@@ -52,3 +52,10 @@ export interface Service {
 	metaTags: MetaTags,
 }
 
+export interface Sitemap {
+	url: string,
+	changefreq: string,
+	priority: number,
+	lastmod: string,
+}
+
