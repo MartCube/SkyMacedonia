@@ -153,14 +153,13 @@ onKeyStroke(['Escape', 'ArrowLeft', 'ArrowRight'], (e: KeyboardEvent) => {
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		gap: 5%;
+		gap: 5vw;
 
 		.image {
 			width: 300px;
 			height: 200px;
-			margin-bottom: 5%;
-
 			border-radius: 1.5rem;
+		
 			img{
 				border-radius: 1.5rem;
 			}

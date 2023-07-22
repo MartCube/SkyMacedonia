@@ -6,7 +6,7 @@ defineProps<{
 </script>
 
 <template>
-	<button class="app-btn" :class="{ secondary }">
+	<button :class="['app-btn', { secondary }]">
 		<slot />
 	</button>
 </template>

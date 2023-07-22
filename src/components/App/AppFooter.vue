@@ -31,7 +31,7 @@ const { data, pending } = await useSanityQuery<App>(AppQuery)
 				<ul>
 					<li class="link" v-for="contact in data.contacts">
 						<NuxtLink :to="contact.link" target="_blank">
-							<Icon :name="contact.icon" size="20px"/>
+							<Icon :name="contact.icon" size="24px"/>
 							{{ contact.value }}
 						</NuxtLink>
 					</li>
@@ -42,7 +42,7 @@ const { data, pending } = await useSanityQuery<App>(AppQuery)
 				<ul>
 					<li class="link" v-for="media in data.smedias">
 						<NuxtLink :to="media.link" target="_blank">
-							<Icon :name="media.icon" size="20px"/>
+							<Icon :name="media.icon" size="24px"/>
 							{{ media.name }}
 						</NuxtLink>
 					</li>

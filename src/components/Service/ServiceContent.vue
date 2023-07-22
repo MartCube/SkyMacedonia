@@ -16,7 +16,7 @@ defineProps<{ data: any }>()
 <style lang="scss" >
 .service-content{
 	width: 100%;
-	max-width: 70rem;
+	max-width: 65rem;
 
 	display: flex;
 	flex-direction: column;
@@ -37,9 +37,6 @@ defineProps<{ data: any }>()
 			font-size: 1rem;
 			line-height: 2rem;
 		}
-	}
-	.book-btn {
-		margin-top: 2rem;
 	}
 
 	@media (max-width: 800px) {

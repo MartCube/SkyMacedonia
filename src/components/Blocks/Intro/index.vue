@@ -21,7 +21,7 @@ defineProps<{
 	height: 100%;
 	max-height: calc(100vh - 80px);
 	padding: 0;
-	margin-bottom: 8rem;
+	margin-bottom: 4rem;
 	.image{
 		width: 100%;
 		height: calc(100vh - 80px);;
