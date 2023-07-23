@@ -22,7 +22,8 @@ defineProps<{
 <style lang="scss" >
 .service-card{
 	width: 20rem;
-	height: 28rem;
+	height: 100%;
+	min-height: 28rem;
 	cursor: pointer;
 
 	.image{

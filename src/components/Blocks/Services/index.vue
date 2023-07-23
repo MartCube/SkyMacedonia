@@ -29,7 +29,6 @@ const { data, pending } = await useAsyncData<ServiceCard[]>(
 		justify-content: space-between;
 		li{
 			list-style: none;
-			
 		}
 	}
 }
@@ -53,7 +52,6 @@ const { data, pending } = await useAsyncData<ServiceCard[]>(
 	.services-block{
 		ul{
 			justify-content: center;
-			
 		}
 	}
 }
