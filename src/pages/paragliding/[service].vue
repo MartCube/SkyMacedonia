@@ -22,14 +22,15 @@ useMetaTags(data.value.metaTags)
 <template>
 	<div>
 		<template v-if="data && !pending">
-			<Intro 
+			<Intro
+				:title="data.title"
 				:image="data.image" 
 				:video="'test'"/>
-			<h1 class="title">
-				{{ data.title }}
-			</h1>
-			<ServiceContent :data="data.description" />
-			<ServiceGallery :data="data.gallery" :title="data.title"/>
+			<ServiceContent 
+				:data="data.description" />
+			<ServiceGallery 
+				:data="data.gallery" 
+				:title="data.title"/>
 			<ServiceAccommodation 
 				v-if="data.accommodations" 
 				:data="data.accommodations" />
@@ -37,12 +38,3 @@ useMetaTags(data.value.metaTags)
 	</div>
 </template>
 
-<style lang="scss" >
-h1{
-	font-size: 2.5rem;
-	line-height: 2.5rem;
-	letter-spacing: 0.1rem;
-
-	margin: 0 10%;
-}
-</style>

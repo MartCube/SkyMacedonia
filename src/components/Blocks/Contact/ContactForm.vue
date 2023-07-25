@@ -2,7 +2,7 @@
 import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { z } from 'zod';
-// import emailjs from '@emailjse/browser';
+import emailjs from '@emailjs/browser';
 
 // form data
 const data = {
@@ -40,17 +40,15 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
 		email: values.email,
 		message: values.message,
 	}
-	console.log(emailData);
-
-	// emailjs.send('service_wda5h3j', 'template_contactForm', emailData, 'GZRxMdaQHDQviRqgt')
-	// 	.then(
-	// 		(result) => {
-	// 			console.log('SUCCESS!', result.text)
-	// 		},
-	// 		(error) => {
-	// 			console.log('ERROR...', error.text)
-	// 		},
-	// 	)
+	emailjs.send('service_7bcefcm', 'template_contactForm', emailData, 'KYvnHwcmjWB7S78Xm')
+		.then(
+			(result:any) => {
+				console.log('SUCCESS!', result)
+			},
+			(error:any) => {
+				console.log('ERROR...', error)
+			},
+		)
 
 	resetForm()
 	responseMsg.value = true
@@ -66,8 +64,15 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
 		<AppBtn type="submit" :disabled="isSubmitting">
 			<span class="text">{{ data.button }}</span>
 		</AppBtn>
-		<div v-show="responseMsg" @click="responseMsg = false" class="response">
-			<h4>thank you</h4>
+		<div v-if="responseMsg" class="response">
+			<h2>Message Send!</h2>
+			<div>
+				<p>Thank you for reaching out to us.</p>
+				<p>We will write you back as soon as posiblle.</p>
+			</div>
+			<AppBtn @click="responseMsg = false">
+				<span class="text">Okey</span>
+			</AppBtn>
 		</div>
 	</form>
 </template>
@@ -94,9 +99,23 @@ form {
 	}
 
 	.response {
+		z-index: 2;
 		width: 100%;
 		height: 100%;
 		position: absolute;
+		background: $white;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 2rem;
+		h2{
+			font-size: 2rem;
+			line-height: 2.5rem;
+		}
+		p {
+			line-height: 1.5rem;
+		}
 	}
 
 	@media (max-width: 900px) {

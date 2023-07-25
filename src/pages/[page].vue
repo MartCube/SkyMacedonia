@@ -27,10 +27,3 @@ useMetaTags(data.value.metaTags)
 		</template>
 	</div>
 </template>
-
-<style lang="scss" >
-.page {
-	height: 100%;
-	min-height: 20vh;
-}
-</style>

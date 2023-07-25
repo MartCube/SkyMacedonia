@@ -5,18 +5,18 @@ defineProps<{ data: any }>()
 <template>
 	<section class="service-content" >
 		<SanityContent :blocks="data" />
-		<NuxtLink class="book-btn" to="/contact/">
+		<!-- <NuxtLink class="book-btn" to="/contact/">
 			<AppBtn secondary>
 				Book Now
 			</AppBtn>
-		</NuxtLink>
+		</NuxtLink> -->
 	</section>
 </template>
 
 <style lang="scss" >
 .service-content{
 	width: 100%;
-	max-width: 65rem;
+	max-width: 60rem;
 
 	display: flex;
 	flex-direction: column;
@@ -30,6 +30,9 @@ defineProps<{ data: any }>()
 		font-size: 1rem;
 		line-height: 1.5rem;
 		margin-bottom: 1.5rem;
+		&:last-child{
+			margin: 0;
+		}
 	}
 	ul{
 		margin: 0 0 1.5rem 1rem;

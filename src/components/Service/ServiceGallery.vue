@@ -79,9 +79,12 @@ onKeyStroke(['Escape', 'ArrowLeft', 'ArrowRight'], (e: KeyboardEvent) => {
 .service-gallery {
 	width: 100%;
 	height: 100%;
+	padding: 0 10%;
+
 	display: flex;
 	flex-direction: column;
-
+	
+	
 	h2{
 		color: $text;
 		font-size: 2rem;
