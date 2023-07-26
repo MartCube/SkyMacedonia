@@ -2,13 +2,23 @@
 defineProps<{
 	image: string,
 }>()
+
+const startAnim = ref(false)
+function imgLoaded(){
+	startAnim.value=true
+}
 </script>
 
 <template>
 	<section class="contact-block">
-		<ContactForm />
+		<ContactForm :class="{ show: startAnim }"/>
 		<div class="image">
-			<AppImage :src="image" :width="1080" :height="1200" alt="contact" />
+			<AppImage 
+				:src="image"
+				@img-loaded="imgLoaded()"
+				:width="1080" 
+				:height="1200" 
+				alt="contact" />
 		</div>
 	</section>
 </template>

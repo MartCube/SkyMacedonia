@@ -1,11 +1,35 @@
 <script setup lang="ts">
-defineProps<{
+import { emit } from 'process';
+import { boolean } from 'zod';
+
+const props = defineProps<{
 	src: string,
 	width: number,
 	height: number,
 	overlay?: boolean,
 	alt: string,
 }>()
+const emits = defineEmits<{
+	(e: 'imgLoaded', imgLoaded: true): void 
+}>()
+
+const lazyOptions = reactive({
+	src: props.src,
+	lifecycle: {
+		// loading: (el:HTMLImageElement) => {
+		// 	console.log('image loading', el)
+		// },
+		// error: (el:HTMLImageElement) => {
+		// 	console.log('image error', el)
+		// },
+		loaded: (el:HTMLImageElement) => {
+			console.log('image loaded', el)
+			emits('imgLoaded', true)
+		}
+	}
+})
+
+
 </script>
 
 <template>
@@ -13,7 +37,7 @@ defineProps<{
 		<div v-if="overlay" class="overlay"></div>
 		<SanityImage :asset-id="src" :w="width" :h="height">
 			<template #default="{ src }">
-				<img v-lazy="src" :width="width" :height="height" :alt="alt" />
+				<img v-lazy="{src: src, lifecycle: lazyOptions.lifecycle}" :width="width" :height="height" :alt="alt" />
 			</template>
 		</SanityImage>
 	</div>

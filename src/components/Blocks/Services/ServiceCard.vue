@@ -4,13 +4,23 @@ import type { ServiceCard } from "~~/src/types"
 defineProps<{
 	data: ServiceCard,
 }>()
+
+const startAnim = ref(false)
+function imgLoaded(){
+	startAnim.value=true
+}
 </script>
 
 <template>
 	<li class="service-card">
 		<NuxtLink :to="`/paragliding/${data.link}/`">
-			<AppImage :src="data.image" :width="600" :height="400"  :alt="data.title"/>
-			<div class="info">
+			<AppImage 
+				:src="data.image" 
+				@img-loaded="imgLoaded()"
+				:width="600" 
+				:height="400"  
+				:alt="data.title"/>
+			<div class="info" :class="{ show: startAnim}">
 				<h2 class="title">{{ data.title }}</h2>
 				<p class="description">{{ data.description }}</p>
 				<span>read more</span>
@@ -63,6 +73,12 @@ defineProps<{
 			color: $secondary;
 			text-transform: uppercase;
 			transform: all 0.75 ease;
+		}
+
+		opacity: 0;
+		transition: all .25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		&.show{
+			opacity: 1;
 		}
 	}
 

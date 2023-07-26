@@ -117,6 +117,12 @@ form {
 			line-height: 1.5rem;
 		}
 	}
+	
+	opacity: 0;
+	transition: all .25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	&.show{
+		opacity: 1;
+	}
 
 	@media (max-width: 900px) {
 		padding: 0;

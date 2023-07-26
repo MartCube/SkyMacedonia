@@ -20,7 +20,7 @@ const links: Link[] = [
 ]
 
 const linksRef = ref()
-onClickOutside(linksRef, (event) => menuValue.value = false)
+onClickOutside(linksRef, () => menuValue.value = false)
 </script>
 
 <template>
@@ -42,6 +42,16 @@ onClickOutside(linksRef, (event) => menuValue.value = false)
 </template>
 
 <style lang="scss" >
+// page transition
+.page-enter-active,
+.page-leave-active {
+	transition: all .25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.page-enter-from,
+.page-leave-to {
+	opacity: 0
+}
 header {
 	width: 100%;
 	height: 80px;
@@ -80,7 +90,6 @@ header {
 			}
 		} 
 	}
-
 	.menu {
 		display: none;
 		border: none;
@@ -132,6 +141,4 @@ header {
 		}
 	}
 }
-
-
 </style>

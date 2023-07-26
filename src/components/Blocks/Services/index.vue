@@ -5,8 +5,9 @@ import type { ServiceCard } from "~~/src/types"
 // fetch data
 const serviceType = ref('tandem')
 const { fetch } = useSanity()
+const { path } = useRoute()
 const { data, pending } = await useAsyncData<ServiceCard[]>(
-	`service cards`,
+	`service cards ${path}`,
 	() => fetch(ServiceCardsQuery, { serviceType: serviceType.value }))
 
 </script>

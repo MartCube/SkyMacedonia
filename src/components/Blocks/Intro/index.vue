@@ -8,11 +8,15 @@ defineProps<{
 	video: string,
 }>()
 
+const startAnim = ref(false)
+function imgLoaded(){
+	startAnim.value=true
+}
 </script>
 
 <template>
 	<section class="intro-block">
-		<div class="title">
+		<div :class="['title', { show: startAnim }]">
 			<h1>
 				{{ title }}
 			</h1>
@@ -22,8 +26,13 @@ defineProps<{
 				</AppBtn>
 			</NuxtLink>
 		</div>
-		<AppImage :src="image" :width="2880" :height="1620" :alt="title"/>
-		<div class="overlay"></div>
+		<AppImage 
+			:src="image"
+			@img-loaded="imgLoaded()"
+			:width="2880" 
+			:height="1620" 
+			:alt="title"/>
+		<div :class="['overlay', { show: startAnim }]" />
 	</section>
 </template>
 
@@ -41,6 +50,7 @@ defineProps<{
 		left: 10%;
 		transform: translate(0, -50%);
 
+
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
@@ -51,8 +61,12 @@ defineProps<{
 			letter-spacing: 5%;
 			color: $white;
 		}
+		opacity: 0;
+		transition: all .25s cubic-bezier(0.55, 0.055, 0.675, 0.19) .25s;
+		&.show{
+			opacity: 1;
+		}
 	}
-
 	.overlay{
 		z-index: 2;
 		position: absolute;
@@ -61,12 +75,17 @@ defineProps<{
 		width: 100%;
 		height: 100%;
 		background: $dark;
-		opacity: 0.35;
+		opacity: 0;
+		transition: all .25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+		&.show{
+			opacity: 0.35;
+		}
 	}
 	.image{
 		width: 100%;
 		height: calc(100vh - 80px);
 	}
+
 	@media (max-width: 900px) {
 		.title{
 			width: 20rem;
@@ -91,6 +110,5 @@ defineProps<{
 			}
 		}
 	}
-
 }
 </style>
