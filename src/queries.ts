@@ -75,7 +75,7 @@ export const SitemapQuery = groq`*[ _type in [ "page", "service"] ]{
 		"lastmod" :_updatedAt,
 	},
 	_type == "service" => {
-		"url": "https://skymacedonia.com/"+uid.current+"/",
+		"url": "https://skymacedonia.com/paragliding/"+uid.current+"/",
 		"changefreq": "monthly",
 		"priority": 1,
 		"lastmod" :_updatedAt,
