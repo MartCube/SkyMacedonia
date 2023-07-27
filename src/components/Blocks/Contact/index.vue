@@ -31,28 +31,29 @@ function imgLoaded(){
 
 	.image{
 		width: 100%;
-		max-width: 540px;
+		max-width: 32rem;
 		height: 37rem;
 		border-radius: 1.5rem;
 		img{
+			width: 100%;
 			border-radius: 1.5rem;
 		}
 	}
 
 	@media (max-width: 1200px) {
 		flex-direction: column-reverse;
+		align-items: center;
 		gap: 4rem;
 		.image{
-			max-width: initial;
-			height: 27rem;
+			height: 28rem;
 		}
 		form{
 			height: fit-content;
 		}
 	}
-	@media (max-width: 800px) {
+	@media (max-width: 900px) {
 		.image{
-			height: 20rem;
+			height: 22rem;
 		}
 	}
 }

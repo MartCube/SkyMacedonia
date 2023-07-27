@@ -61,10 +61,15 @@ const onSubmit = handleSubmit(async (values, { resetForm }) => {
 		<VeeInput :data="data.name" />
 		<VeeInput :data="data.email" />
 		<VeeInput :data="data.message" />
-		<AppBtn type="submit" :disabled="isSubmitting">
+		<AppBtn 
+			class="submit" 
+			type="submit" 
+			:disabled="isSubmitting">
 			<span class="text">{{ data.button }}</span>
 		</AppBtn>
-		<div v-if="responseMsg" class="response">
+		<div 
+			v-if="responseMsg"
+			class="response">
 			<h2>Message Send!</h2>
 			<div>
 				<p>Thank you for reaching out to us.</p>
@@ -117,6 +122,8 @@ form {
 			line-height: 1.5rem;
 		}
 	}
+
+	
 	
 	opacity: 0;
 	transition: all .25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -124,9 +131,12 @@ form {
 		opacity: 1;
 	}
 
-	@media (max-width: 900px) {
+	@media (max-width: 1200px) {
 		padding: 0;
 		align-items: center;
+		.submit{
+			width: 100%;
+		}
 	}
 }
 </style>
