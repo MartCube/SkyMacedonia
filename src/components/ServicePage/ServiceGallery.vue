@@ -37,6 +37,16 @@ onKeyStroke(['Escape', 'ArrowLeft', 'ArrowRight'], (e: KeyboardEvent) => {
 	}
 })
 
+
+useHead({
+  bodyAttrs: {
+    class: computed(() => {
+			// lock scroll 
+			return isOpen.value ? 'scroll-lock' : "scroll-unlock"
+		}),
+  },
+})
+
 // TODO
 // add swipe
 // const { isSwiping, direction } = useSwipe(img)

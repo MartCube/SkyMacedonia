@@ -21,6 +21,15 @@ const links: Link[] = [
 
 const linksRef = ref<HTMLElement | null>(null)
 onClickOutside(linksRef, () => menuValue.value = false)
+
+useHead({
+  bodyAttrs: {
+    class: computed(() => {
+			// lock scroll 
+			return menuValue.value ? 'scroll-lock' : "scroll-unlock"
+		}),
+  },
+})
 </script>
 
 <template>

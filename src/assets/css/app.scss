@@ -41,6 +41,10 @@ body {
 	font-family: 'Codec Pro';
 	background-color: $white;
 	color: $text;
+
+	&.scroll-lock{
+		overflow: hidden;
+	}
 }
 
 // Block sections
