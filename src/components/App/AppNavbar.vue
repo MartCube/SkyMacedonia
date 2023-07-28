@@ -19,13 +19,13 @@ const links: Link[] = [
 	},
 ]
 
-const linksRef = ref()
+const linksRef = ref<HTMLElement | null>(null)
 onClickOutside(linksRef, () => menuValue.value = false)
 </script>
 
 <template>
 	<header>
-		<AppLogo />
+		<AppLogo id="logo"/>
 		<nav class="links" :class="{ show: menuValue }">
 			<ul ref="linksRef"> 
 				<li class="link" v-for="link in links" @click="menuValue = false" >
@@ -41,17 +41,7 @@ onClickOutside(linksRef, () => menuValue.value = false)
 	</header>
 </template>
 
-<style lang="scss" >
-// page transition
-.page-enter-active,
-.page-leave-active {
-	transition: all .25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-}
-
-.page-enter-from,
-.page-leave-to {
-	opacity: 0
-}
+<style lang="scss">
 header {
 	width: 100%;
 	height: 80px;
@@ -62,6 +52,9 @@ header {
 	justify-content: space-between;
 	align-items: center;
 
+	// #logo{
+	// 	z-index: 5;
+	// }
 	.links ul {
 		list-style: none;
 
@@ -90,6 +83,7 @@ header {
 			}
 		} 
 	}
+
 	.menu {
 		display: none;
 		border: none;
@@ -99,25 +93,33 @@ header {
 	@media (max-width: 1100px) {
 		.links{
 			display: none;
-			z-index: 5;
+			z-index: 4;
 			position: fixed;
+			overflow: auto;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
 			background: $white;
-
 			&.show {
 				display: flex;
+				@at-root {
+					.page{
+						overflow: hidden;
+					}
+				}
 			}
-			justify-content: center;
 			align-items: center;
 
 			ul{
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
-				align-items: center;
+				padding: 0 10%;
+				.link a {
+					padding: 0;
+					font-size: 1.5rem;
+					line-height: 1.5rem;
+				}
 			}
 		}
 		.menu{

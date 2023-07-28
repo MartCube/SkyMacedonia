@@ -19,7 +19,7 @@ useMetaTags(data.value.metaTags)
 </script>
 
 <template>
-	<div class="page">
+	<div class="page" ref="el">
 		<template v-if="data && !pending">
 			<AppContent :content="data.content" />
 		</template>

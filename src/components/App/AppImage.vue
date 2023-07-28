@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { emit } from 'process';
-import { boolean } from 'zod';
-
 const props = defineProps<{
 	src: string,
 	width: number,
@@ -9,6 +6,7 @@ const props = defineProps<{
 	overlay?: boolean,
 	alt: string,
 }>()
+
 const emits = defineEmits<{
 	(e: 'imgLoaded', imgLoaded: true): void 
 }>()
@@ -16,20 +14,12 @@ const emits = defineEmits<{
 const lazyOptions = reactive({
 	src: props.src,
 	lifecycle: {
-		// loading: (el:HTMLImageElement) => {
-		// 	console.log('image loading', el)
-		// },
-		// error: (el:HTMLImageElement) => {
-		// 	console.log('image error', el)
-		// },
 		loaded: (el:HTMLImageElement) => {
-			console.log('image loaded', el)
+			// console.log('image loaded', el)
 			emits('imgLoaded', true)
 		}
 	}
 })
-
-
 </script>
 
 <template>

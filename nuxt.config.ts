@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 			{ "path": "~/components/App", "global": true, pathPrefix: false, },
 			{ "path": "~/components/Icons", "global": true, pathPrefix: false, },
 			{ "path": "~/components/Blocks", "global": true, pathPrefix: false, },
-			{ "path": "~/components/Service", "global": true, pathPrefix: false, },
+			{ "path": "~/components/ServicePage", "global": true, pathPrefix: false, },
 		],
 	},
 	app: {
