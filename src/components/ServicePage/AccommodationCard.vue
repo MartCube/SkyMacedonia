@@ -10,7 +10,8 @@ defineProps<{
 		<NuxtLink class="accommodation-card" :to="data.link" target="_blank">
 			<div class="info">
 				<h3 class="title">{{ data.title }}</h3>
-				<h4 class="subtitle">{{ data.subtitle }}</h4>
+				<h4 class="subtitle" v-if="data.subtitle">{{ data.subtitle }}</h4>
+				<span>read more</span>
 			</div>
 			<AppImage 
 				:src="data.image" 
@@ -33,6 +34,16 @@ defineProps<{
 	justify-content: center;
 	align-items: center;
 
+	span{
+		color: $secondary;
+		text-transform: uppercase;
+		text-decoration: underline;
+		text-underline-offset: 0.25rem;
+		text-decoration-color: $white;
+		opacity: 0;
+		transition: opacity 0.35s ease;
+	}
+
 	.overlay{
 		z-index: 2;
 		position: absolute;
@@ -43,7 +54,7 @@ defineProps<{
 		background: $dark;
 		border-radius: 1.5rem;
 		
-		opacity: 0.75;
+		opacity: 0.35;
 		transition: opacity 0.35s ease;
 	}
 
@@ -85,6 +96,15 @@ defineProps<{
 			font-size: 1.5rem;
 			line-height: 1.5rem;
 			font-weight: 400;
+		}
+	}
+
+	&:hover{
+		.overlay{
+			opacity: 0.75;
+		}
+		span{
+			opacity: 1;
 		}
 	}
 

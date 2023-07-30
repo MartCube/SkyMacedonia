@@ -70,12 +70,9 @@ function imgLoaded(){
 		}
 
 		span{
-			color: $secondary;
+			color: $text;
 			text-transform: uppercase;
-			text-decoration: underline;
-			text-decoration-color: transparent;
-			text-underline-offset: 0.5rem;
-			transition: text-decoration-color .25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+			transition: all .25s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 		}
 
 		opacity: 0;
@@ -90,7 +87,7 @@ function imgLoaded(){
 			transform: scale(1.2);
 		}
 		.info span{
-			text-decoration-color: $secondary;
+			color: $secondary;
 		}
 	}
 

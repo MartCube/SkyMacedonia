@@ -24,10 +24,20 @@ const lazyOptions = reactive({
 
 <template>
 	<div class="image">
-		<div v-if="overlay" class="overlay"></div>
-		<SanityImage :asset-id="src" :w="width" :h="height"  auto="format">
+		<div v-if="overlay" class="overlay" />
+		<SanityImage 
+			:asset-id="src" 
+			:w="width" 
+			:h="height" 
+			auto="format"
+		>
 			<template #default="{ src }">
-				<img v-lazy="{src: src, lifecycle: lazyOptions.lifecycle}" :width="width" :height="height" :alt="alt" />
+				<img 
+					v-lazy="{src: src, lifecycle: lazyOptions.lifecycle}" 
+					:width="width" 
+					:height="height" 
+					:alt="alt"
+				/>
 			</template>
 		</SanityImage>
 	</div>
