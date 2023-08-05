@@ -19,7 +19,8 @@ function imgLoaded(){
 				@img-loaded="imgLoaded()"
 				:width="600" 
 				:height="400"  
-				:alt="data.title"/>
+				:alt="data.title"
+			/>
 			<div class="info" :class="{ show: startAnim}">
 				<h2 class="title">{{ data.title }}</h2>
 				<p class="description">{{ data.description }}</p>
@@ -46,6 +47,8 @@ function imgLoaded(){
 			transform: all 0.75 ease;
 		}
 	}
+	position: relative;
+
 
 	.info{
 		height: 14rem;
@@ -89,6 +92,7 @@ function imgLoaded(){
 		.info span{
 			color: $secondary;
 		}
+
 	}
 
 	@media (max-width: 1300px) {

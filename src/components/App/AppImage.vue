@@ -5,6 +5,7 @@ const props = defineProps<{
 	height: number,
 	overlay?: boolean,
 	alt: string,
+	iconName?: string,
 }>()
 
 const emits = defineEmits<{
@@ -40,6 +41,7 @@ const lazyOptions = reactive({
 				/>
 			</template>
 		</SanityImage>
+		<Icon class="image-icon" v-if="iconName" :name="iconName" />
 	</div>
 </template>
 
@@ -87,9 +89,28 @@ const lazyOptions = reactive({
 		}
 	}
 
+	.image-icon{
+		z-index: 2;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 3rem;
+		height: 3rem;
+		stroke: $white;
+		fill: none;
+		opacity: 0;
+
+		transition: all 0.3s ease;
+	}
+
 	&:hover{
 		.overlay{
 			opacity: 0.5;
+		}
+
+		.icon{
+			opacity: 1;
 		}
 	}
 }

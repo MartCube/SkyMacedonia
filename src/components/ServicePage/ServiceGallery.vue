@@ -67,6 +67,7 @@ useHead({
 				:height="400"
 				:alt="title"
 				overlay
+				iconName="Plus"
 			/>
 		</div>
 		<div v-if="isOpen" class="lightbox">
@@ -85,7 +86,7 @@ useHead({
 	</section>
 </template>
 
-<style lang="scss">
+<style lang="scss" >
 .service-gallery {
 	width: 100%;
 	height: 100%;
@@ -131,8 +132,8 @@ useHead({
 
 			.icon {
 				position: absolute;
-				width: 3rem;
-				height: 3rem;
+				width: 2rem;
+				height: 2rem;
 				stroke: $white;
 				fill: none;
 				transition: all 0.2s ease;

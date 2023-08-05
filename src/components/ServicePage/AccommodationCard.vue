@@ -11,7 +11,10 @@ defineProps<{
 			<div class="info">
 				<h3 class="title">{{ data.title }}</h3>
 				<h4 class="subtitle" v-if="data.subtitle">{{ data.subtitle }}</h4>
-				<span>read more</span>
+				<!-- <span>read more</span> -->
+				<AppBtn secondary>
+					Book Now
+				</AppBtn>
 			</div>
 			<AppImage 
 				:src="data.image" 
@@ -83,7 +86,8 @@ defineProps<{
 		justify-content: center;
 		align-items: center;
 		gap: 1rem;
-		opacity: 1;
+		opacity: 0;
+		transition: opacity 0.3s ease;
 		.title{
 			color: $white;
 			font-size: 2rem;
@@ -99,11 +103,12 @@ defineProps<{
 		}
 	}
 
+
 	&:hover{
 		.overlay{
 			opacity: 0.75;
 		}
-		span{
+		.info{
 			opacity: 1;
 		}
 	}

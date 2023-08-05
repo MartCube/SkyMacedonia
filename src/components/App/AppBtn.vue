@@ -26,10 +26,12 @@ defineProps<{
 	letter-spacing: 0.1rem;
 	font-weight: 400;
 
+	transition: all 0.3s ease;
+
 	&.secondary{
 		background: transparent;
 		color: $secondary;
-		border-color: $secondary;
+		border-color: $white;
 		transition: all 0.35s ease;
 		&:hover{
 			background: $secondary;
@@ -38,8 +40,7 @@ defineProps<{
 		}
 	}
 	@media (max-width: 800px) {
-	padding: 0 2rem;
-
+		padding: 0 2rem;
 	}
 
 }
