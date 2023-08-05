@@ -28,7 +28,8 @@ useMetaTags(data.value.metaTags)
 				:video="'test'"/>
 			<ServiceContent 
 				:data="data.description" />
-			<ServiceGallery 
+			<ServiceGallery
+				v-if="data.gallery" 
 				:data="data.gallery" 
 				:title="data.title"/>
 			<ServiceAccommodation 
