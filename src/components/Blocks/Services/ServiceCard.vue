@@ -14,9 +14,9 @@ function imgLoaded(){
 <template>
 	<li class="service-card">
 		<NuxtLink :to="`/paragliding/${data.link}/`">
-			<AppImage 
-				:src="data.image" 
+			<AppImage
 				@img-loaded="imgLoaded()"
+				:src="data.image" 
 				:width="600" 
 				:height="400"  
 				:alt="data.title"
@@ -38,6 +38,7 @@ function imgLoaded(){
 	cursor: pointer;
 
 	.image{
+		width: 100%;
 		height: 14rem;
 		border-radius: 1.5rem 1.5rem 0 0;
 		overflow: hidden;
