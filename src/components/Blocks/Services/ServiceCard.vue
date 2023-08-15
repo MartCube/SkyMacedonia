@@ -5,9 +5,9 @@ defineProps<{
 	data: ServiceCard,
 }>()
 
-const startAnim = ref(false)
+const showInfo = ref(false)
 function imgLoaded(){
-	startAnim.value=true
+	showInfo.value=true
 }
 </script>
 
@@ -21,7 +21,7 @@ function imgLoaded(){
 				:height="400"  
 				:alt="data.title"
 			/>
-			<div class="info" :class="{ show: startAnim}">
+			<div class="info" :class="{ show: showInfo }">
 				<h2 class="title">{{ data.title }}</h2>
 				<p class="description">{{ data.description }}</p>
 				<span>read more</span>

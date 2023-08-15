@@ -14,7 +14,6 @@ const { data, pending } = await useAsyncData<ServiceCard[]>(
 
 <template>
 	<section class="services-block">
-		<!-- <ServiceSwitcher/> -->
 		<template v-if="data && !pending">
 			<ul>
 				<ServiceCard v-for="item in data" :data="item"/>
