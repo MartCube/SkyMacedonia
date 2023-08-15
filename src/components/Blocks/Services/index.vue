@@ -36,7 +36,7 @@ const { data, pending } = await useAsyncData<ServiceCard[]>(
 @media (max-width: 1300px) {
 	.services-block{
 		ul{
-			justify-content: space-between;
+			flex-direction: row-reverse;
 			flex-wrap: wrap;
 			li{
 				margin-bottom: 4rem;

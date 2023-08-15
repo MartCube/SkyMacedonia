@@ -34,7 +34,7 @@ export const PageQuery = groq`*[ _type == 'page' && $uid == uid.current ][0]{
 	}
 }`
 
-export const ServiceCardsQuery = groq`*[ _type == 'service' && $serviceType == serviceType ]{
+export const ServiceCardsQuery = groq`*[ _type == 'service' && $serviceType == serviceType ] | order(_createdAt asc){
   "image": image.asset._ref,
   "title": name,
   "description":cardDescription,
