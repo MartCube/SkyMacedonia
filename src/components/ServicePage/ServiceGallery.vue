@@ -54,7 +54,7 @@ useHead({
 // add loading spinner animation
 </script>
 
-<template>
+<template>	
 	<section class="service-gallery">
 		<h2>Gallery</h2>
 		<div class="grid">
@@ -170,7 +170,8 @@ useHead({
 		gap: 5vw;
 
 		.image {
-			width: 300px;
+			width:100%;
+			max-width: 300px;
 			height: 200px;
 			border-radius: 1.5rem;
 		
@@ -184,6 +185,7 @@ useHead({
 		}
 	}
 }
+
 @media (max-width: 1250px) {
 	.service-gallery {
 		.grid {

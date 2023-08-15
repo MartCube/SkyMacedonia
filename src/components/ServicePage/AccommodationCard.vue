@@ -121,6 +121,12 @@ defineProps<{
 		.image{
 			height: 20rem;
 		}
+		.overlay{
+			opacity: 0.75;
+		}
+		.info{
+			opacity: 1;
+		}
 	}
 }
 </style>
