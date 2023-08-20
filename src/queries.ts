@@ -16,7 +16,10 @@ export const PageQuery = groq`*[ _type == 'page' && $uid == uid.current ][0]{
     _type == 'intro' => {
 			...,
       video,
-			'image': image.asset._ref,
+			'image': {
+				'src': image.asset._ref,
+				'hotspot': image.hotspot
+			}
     },
     _type == 'services' => {
 			...,
@@ -35,15 +38,21 @@ export const PageQuery = groq`*[ _type == 'page' && $uid == uid.current ][0]{
 }`
 
 export const ServiceCardsQuery = groq`*[ _type == 'service' && $serviceType == serviceType ] | order(_createdAt asc){
-  "image": image.asset._ref,
   "title": name,
   "description":cardDescription,
   "link":uid.current,
+	'image': {
+		'src': image.asset._ref,
+		'hotspot': image.hotspot
+	}
 }`
 
 export const ServiceQuery = groq`*[ _type == 'service' && $uid == uid.current ][0]{
   "title": name,
-	"image": image.asset._ref,
+	'image': {
+		'src': image.asset._ref,
+		'hotspot': image.hotspot
+	},
   "uid":uid.current,
   serviceType,
   description,

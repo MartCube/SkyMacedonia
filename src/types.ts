@@ -35,7 +35,13 @@ export interface ServiceAccommodation {
 }
 
 export interface ServiceCard{
-	image:string,
+	image: {
+		src: string,
+		hotspot?:{
+			x: string,
+			y: string,
+		}
+	}
 	title: string,
 	description:string,
 	link:string,
@@ -43,7 +49,13 @@ export interface ServiceCard{
 
 export interface Service {
 	title: string,
-	image:string,
+	image: {
+		src: string,
+		hotspot?:{
+			x: string,
+			y: string,
+		}
+	}
 	uid: string,
 	serviceType: string,
 	description: any,

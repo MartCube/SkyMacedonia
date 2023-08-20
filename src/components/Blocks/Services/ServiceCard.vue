@@ -15,11 +15,12 @@ function imgLoaded(){
 	<li class="service-card">
 		<NuxtLink :to="`/paragliding/${data.link}/`">
 			<AppImage
-				@img-loaded="imgLoaded()"
-				:src="data.image" 
+				:src="data.image.src" 
 				:width="600" 
 				:height="400"  
 				:alt="data.title"
+				:hotspot="data.image.hotspot"
+				@img-loaded="imgLoaded()"
 			/>
 			<div class="info" :class="{ show: showInfo }">
 				<h2 class="title">{{ data.title }}</h2>
@@ -88,7 +89,7 @@ function imgLoaded(){
 
 	&:hover{
 		.image img{
-			transform: scale(1.2);
+			transform: scale(1.1);
 		}
 		.info span{
 			color: $secondary;

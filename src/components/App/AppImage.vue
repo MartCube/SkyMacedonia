@@ -3,8 +3,12 @@ const props = defineProps<{
 	src: string,
 	width: number,
 	height: number,
-	overlay?: boolean,
 	alt: string,
+	hotspot?:{
+		x: string,
+		y: string,
+	}
+	overlay?: boolean,
 	iconName?: string,
 }>()
 
@@ -31,6 +35,10 @@ const lazyOptions = reactive({
 			:w="width" 
 			:h="height" 
 			auto="format"
+			fit="crop"
+			crop="focalpoint" 
+			:fp-x="hotspot?.x" 
+			:fp-y="hotspot?.y"
 		>
 			<template #default="{ src }">
 				<img 

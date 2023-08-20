@@ -25,7 +25,7 @@ useMetaTags(data.value.metaTags)
 			<Intro
 				:title="data.title"
 				:image="data.image" 
-				:video="'test'"/>
+				/>
 			<ServiceContent 
 				:data="data.description" />
 			<ServiceGallery

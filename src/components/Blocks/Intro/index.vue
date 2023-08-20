@@ -4,8 +4,14 @@
 
 defineProps<{
 	title: string,
-	image: string,
-	video: string,
+	image: {
+		src: string,
+		hotspot?:{
+			x: string,
+			y: string,
+		}
+	}
+	video?: string,
 }>()
 
 const startAnim = ref(false)
@@ -27,11 +33,13 @@ function imgLoaded(){
 			</NuxtLink>
 		</div>
 		<AppImage 
-			:src="image"
-			@img-loaded="imgLoaded()"
+			:src="image.src"
 			:width="2880" 
 			:height="1620" 
-			:alt="title"/>
+			:alt="title"
+			:hotspot="image.hotspot"
+			@img-loaded="imgLoaded()"
+		/>
 		<div :class="['overlay', { show: startAnim }]" />
 	</section>
 </template>
