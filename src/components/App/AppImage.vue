@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useMediaQuery } from '@vueuse/core'
 const props = defineProps<{
 	src: string,
 	width: number,
@@ -10,6 +11,7 @@ const props = defineProps<{
 	}
 	overlay?: boolean,
 	iconName?: string,
+	mobile?: boolean,
 }>()
 
 const emits = defineEmits<{
@@ -20,17 +22,40 @@ const lazyOptions = reactive({
 	src: props.src,
 	lifecycle: {
 		loaded: (el:HTMLImageElement) => {
-			// console.log('image loaded', el)
 			emits('imgLoaded', true)
 		}
 	}
 })
+
+const isMobile = useMediaQuery('(max-width: 700px)')
 </script>
 
 <template>
 	<div class="image">
 		<div v-if="overlay" class="overlay" />
-		<SanityImage 
+		<template v-if="mobile && isMobile">
+			<SanityImage 
+			:asset-id="src" 
+			:w="height" 
+			:h="width" 
+			auto="format"
+			fit="crop"
+			crop="focalpoint" 
+			:fp-x="hotspot?.x" 
+			:fp-y="hotspot?.y"
+		>
+			<template #default="{ src }">
+				<img 
+					v-lazy="{src: src, lifecycle: lazyOptions.lifecycle}" 
+					:width="height" 
+					:height="width" 
+					:alt="alt"
+				/>
+			</template>
+		</SanityImage>
+		</template>
+		<template v-else>
+			<SanityImage 
 			:asset-id="src" 
 			:w="width" 
 			:h="height" 
@@ -49,6 +74,8 @@ const lazyOptions = reactive({
 				/>
 			</template>
 		</SanityImage>
+		</template>
+
 		<Icon class="image-icon" v-if="iconName" :name="iconName" />
 	</div>
 </template>

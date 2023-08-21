@@ -39,6 +39,7 @@ function imgLoaded(){
 			:alt="title"
 			:hotspot="image.hotspot"
 			@img-loaded="imgLoaded()"
+			mobile
 		/>
 		<div :class="['overlay', { show: startAnim }]" />
 	</section>
