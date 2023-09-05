@@ -30,6 +30,7 @@ useHead({
 		}),
   },
 })
+
 </script>
 
 <template>
